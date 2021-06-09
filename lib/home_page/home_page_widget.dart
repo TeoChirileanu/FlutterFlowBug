@@ -17,6 +17,19 @@ class _HomePageWidgetState extends State<HomePageWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
+      body: Stack(
+        children: [
+          Align(
+            alignment: Alignment(0, 0),
+            child: Text(
+              'Sugi Pula',
+              style: FlutterFlowTheme.bodyText1.override(
+                fontFamily: 'Poppins',
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
