@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
@@ -40,8 +41,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           alignment: Alignment(0, -1),
                           child: Padding(
                             padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
-                            child: Image.network(
-                              'https://github.com/TeoChirileanu/FlutterFlowBug/blob/main/assets/images/copacel.png?raw=true',
+                            child: CachedNetworkImage(
+                              imageUrl:
+                                  'https://github.com/TeoChirileanu/FlutterFlowBug/blob/main/assets/images/copacel.png?raw=true',
                               width: double.infinity,
                               fit: BoxFit.cover,
                             ),
@@ -75,8 +77,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           alignment: Alignment(0.1, 0.76),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              await launchURL(
-                                  'https://buy.stripe.com/bIY7tQaycgWj18saEG');
                               await showDialog(
                                 context: context,
                                 builder: (alertDialogContext) {
@@ -93,18 +93,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       TextButton(
                                         onPressed: () async {
                                           Navigator.pop(alertDialogContext);
-                                          await Navigator.push(
-                                            context,
-                                            PageTransition(
-                                              type: PageTransitionType.scale,
-                                              alignment: Alignment.bottomCenter,
-                                              duration:
-                                                  Duration(milliseconds: 300),
-                                              reverseDuration:
-                                                  Duration(milliseconds: 300),
-                                              child: ConfirmationPageWidget(),
-                                            ),
-                                          );
+                                          await launchURL(
+                                              'https://buy.stripe.com/bIY7tQaycgWj18saEG');
                                           ;
                                         },
                                         child: Text('Mergi si plateste'),
@@ -147,8 +137,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           alignment: Alignment(0, -1),
                           child: Padding(
                             padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
-                            child: Image.network(
-                              'https://github.com/TeoChirileanu/FlutterFlowBug/blob/main/assets/images/copac.png?raw=true',
+                            child: CachedNetworkImage(
+                              imageUrl:
+                                  'https://github.com/TeoChirileanu/FlutterFlowBug/blob/main/assets/images/copac.png?raw=true',
                               width: double.infinity,
                               fit: BoxFit.cover,
                             ),
@@ -182,8 +173,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           alignment: Alignment(0.1, 0.76),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              await launchURL(
-                                  'https://buy.stripe.com/14kcOafSw9tR4kEbIL');
                               await showDialog(
                                 context: context,
                                 builder: (alertDialogContext) {
@@ -200,18 +189,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       TextButton(
                                         onPressed: () async {
                                           Navigator.pop(alertDialogContext);
-                                          await Navigator.push(
-                                            context,
-                                            PageTransition(
-                                              type: PageTransitionType.scale,
-                                              alignment: Alignment.bottomCenter,
-                                              duration:
-                                                  Duration(milliseconds: 300),
-                                              reverseDuration:
-                                                  Duration(milliseconds: 300),
-                                              child: ConfirmationPageWidget(),
-                                            ),
-                                          );
+                                          await launchURL(
+                                              'https://buy.stripe.com/14kcOafSw9tR4kEbIL');
                                           ;
                                         },
                                         child: Text('Mergi si plateste'),
@@ -254,8 +233,9 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           alignment: Alignment(0, -1),
                           child: Padding(
                             padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
-                            child: Image.network(
-                              'https://github.com/TeoChirileanu/FlutterFlowBug/blob/main/assets/images/copacoi.png?raw=true',
+                            child: CachedNetworkImage(
+                              imageUrl:
+                                  'https://github.com/TeoChirileanu/FlutterFlowBug/blob/main/assets/images/copacoi.png?raw=true',
                               width: double.infinity,
                               fit: BoxFit.cover,
                             ),
@@ -289,8 +269,6 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                           alignment: Alignment(0.1, 0.76),
                           child: FFButtonWidget(
                             onPressed: () async {
-                              await launchURL(
-                                  'https://buy.stripe.com/bIY15s49ObBZ8AU7st');
                               await showDialog(
                                 context: context,
                                 builder: (alertDialogContext) {
@@ -307,18 +285,8 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                       TextButton(
                                         onPressed: () async {
                                           Navigator.pop(alertDialogContext);
-                                          await Navigator.push(
-                                            context,
-                                            PageTransition(
-                                              type: PageTransitionType.scale,
-                                              alignment: Alignment.bottomCenter,
-                                              duration:
-                                                  Duration(milliseconds: 300),
-                                              reverseDuration:
-                                                  Duration(milliseconds: 300),
-                                              child: ConfirmationPageWidget(),
-                                            ),
-                                          );
+                                          await launchURL(
+                                              'https://buy.stripe.com/bIY15s49ObBZ8AU7st');
                                           ;
                                         },
                                         child: Text('Mergi si plateste'),
