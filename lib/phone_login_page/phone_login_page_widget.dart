@@ -53,7 +53,7 @@ class _PhoneLoginPageWidgetState extends State<PhoneLoginPageWidget> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Padding(
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 50),
+                      padding: EdgeInsets.fromLTRB(0, 50, 0, 5),
                       child: CachedNetworkImage(
                         imageUrl:
                             'https://github.com/TeoChirileanu/FlutterFlowBug/blob/main/assets/images/logo%20(2).png?raw=true',
@@ -79,7 +79,7 @@ class _PhoneLoginPageWidgetState extends State<PhoneLoginPageWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'Phone Number',
-                            hintStyle: FlutterFlowTheme.bodyText1.override(
+                            hintStyle: FlutterFlowTheme.title1.override(
                               fontFamily: 'Poppins',
                             ),
                             enabledBorder: UnderlineInputBorder(
@@ -103,7 +103,7 @@ class _PhoneLoginPageWidgetState extends State<PhoneLoginPageWidget> {
                               ),
                             ),
                           ),
-                          style: FlutterFlowTheme.bodyText1.override(
+                          style: FlutterFlowTheme.title1.override(
                             fontFamily: 'Poppins',
                           ),
                           textAlign: TextAlign.center,
@@ -152,9 +152,8 @@ class _PhoneLoginPageWidgetState extends State<PhoneLoginPageWidget> {
                           width: 130,
                           height: 40,
                           color: Color(0xB83474E0),
-                          textStyle: FlutterFlowTheme.subtitle2.override(
+                          textStyle: FlutterFlowTheme.title2.override(
                             fontFamily: 'Poppins',
-                            color: Colors.white,
                           ),
                           borderSide: BorderSide(
                             color: Colors.transparent,
