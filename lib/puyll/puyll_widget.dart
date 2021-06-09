@@ -3,6 +3,7 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
 import '../home_page/home_page_widget.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -36,7 +37,7 @@ class _PuyllWidgetState extends State<PuyllWidget> {
           Align(
             alignment: Alignment(0, 0),
             child: Image.network(
-              'https://picsum.photos/seed/329/900',
+              'https://github.com/TeoChirileanu/FlutterFlowBug/blob/main/assets/images/forest.gif?raw=true',
               width: double.infinity,
               height: double.infinity,
               fit: BoxFit.cover,
@@ -103,6 +104,7 @@ class _PuyllWidgetState extends State<PuyllWidget> {
                               color: Colors.white,
                               fontWeight: FontWeight.normal,
                             ),
+                            textAlign: TextAlign.center,
                           ),
                         ),
                       ),
@@ -113,7 +115,7 @@ class _PuyllWidgetState extends State<PuyllWidget> {
                         width: double.infinity,
                         height: 50,
                         decoration: BoxDecoration(
-                          color: Color(0x65EEEEEE),
+                          color: Color(0x66EEEEEE),
                           borderRadius: BorderRadius.circular(25),
                         ),
                         child: Padding(
@@ -157,7 +159,7 @@ class _PuyllWidgetState extends State<PuyllWidget> {
                                   passwordVisibility
                                       ? Icons.visibility_outlined
                                       : Icons.visibility_off_outlined,
-                                  size: 22,
+                                  size: 25,
                                 ),
                               ),
                             ),
@@ -166,13 +168,14 @@ class _PuyllWidgetState extends State<PuyllWidget> {
                               color: Colors.white,
                               fontWeight: FontWeight.normal,
                             ),
+                            textAlign: TextAlign.center,
                           ),
                         ),
                       ),
                     ),
                     FFButtonWidget(
                       onPressed: () async {
-                        final user = await createAccountWithEmail(
+                        final user = await signInWithEmail(
                           context,
                           emailTextController.text,
                           passwordTextController.text,
@@ -189,7 +192,7 @@ class _PuyllWidgetState extends State<PuyllWidget> {
                           (r) => false,
                         );
                       },
-                      text: 'Get Started',
+                      text: 'Login',
                       options: FFButtonOptions(
                         width: 300,
                         height: 55,
@@ -212,11 +215,12 @@ class _PuyllWidgetState extends State<PuyllWidget> {
             ),
           ),
           Align(
-            alignment: Alignment(0, -0.65),
-            child: Image.network(
-              'https://storage.googleapis.com/flutterflow-io-6f20.appspot.com/flutterflow_assets/ff_logo.png',
-              width: 100,
-              height: 100,
+            alignment: Alignment(0.07, -0.89),
+            child: CachedNetworkImage(
+              imageUrl:
+                  'https://github.com/TeoChirileanu/FlutterFlowBug/blob/main/assets/images/logo%20(2).png?raw=true',
+              width: 300,
+              height: 200,
               fit: BoxFit.cover,
             ),
           )
