@@ -1,6 +1,8 @@
+import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../sms_verify_page/sms_verify_page_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -32,7 +34,7 @@ class _PhoneLoginPageWidgetState extends State<PhoneLoginPageWidget> {
             alignment: Alignment(0, 0),
             child: CachedNetworkImage(
               imageUrl:
-                  'https://github.com/TeoChirileanu/FlutterFlowBug/blob/flutterflow/assets/images/padure.jpg?raw=true',
+                  'https://github.com/TeoChirileanu/FlutterFlowBug/blob/main/assets/images/padure.jpg?raw=true',
               width: double.infinity,
               height: double.infinity,
               fit: BoxFit.cover,
@@ -51,10 +53,10 @@ class _PhoneLoginPageWidgetState extends State<PhoneLoginPageWidget> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Padding(
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 50),
+                      padding: EdgeInsets.fromLTRB(0, 50, 0, 5),
                       child: CachedNetworkImage(
                         imageUrl:
-                            'https://github.com/TeoChirileanu/FlutterFlowBug/blob/flutterflow/assets/images/logo%20(2).png?raw=true',
+                            'https://github.com/TeoChirileanu/FlutterFlowBug/blob/main/assets/images/logo%20(2).png?raw=true',
                         width: 300,
                         height: 200,
                         fit: BoxFit.cover,
@@ -62,7 +64,9 @@ class _PhoneLoginPageWidgetState extends State<PhoneLoginPageWidget> {
                     )
                   ],
                 ),
-                Divider(),
+                Divider(
+                  color: Colors.transparent,
+                ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -75,7 +79,7 @@ class _PhoneLoginPageWidgetState extends State<PhoneLoginPageWidget> {
                           obscureText: false,
                           decoration: InputDecoration(
                             hintText: 'Phone Number',
-                            hintStyle: FlutterFlowTheme.bodyText1.override(
+                            hintStyle: FlutterFlowTheme.title1.override(
                               fontFamily: 'Poppins',
                             ),
                             enabledBorder: UnderlineInputBorder(
@@ -99,7 +103,7 @@ class _PhoneLoginPageWidgetState extends State<PhoneLoginPageWidget> {
                               ),
                             ),
                           ),
-                          style: FlutterFlowTheme.bodyText1.override(
+                          style: FlutterFlowTheme.title1.override(
                             fontFamily: 'Poppins',
                           ),
                           textAlign: TextAlign.center,
@@ -108,7 +112,9 @@ class _PhoneLoginPageWidgetState extends State<PhoneLoginPageWidget> {
                     )
                   ],
                 ),
-                Divider(),
+                Divider(
+                  color: Colors.transparent,
+                ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -116,17 +122,38 @@ class _PhoneLoginPageWidgetState extends State<PhoneLoginPageWidget> {
                     Padding(
                       padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
                       child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          if (textController.text.isEmpty ||
+                              !textController.text.startsWith('+')) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                    'Phone Number is required and has to start with +.'),
+                              ),
+                            );
+                            return;
+                          }
+                          await beginPhoneAuth(
+                            context: context,
+                            phoneNumber: textController.text,
+                            onCodeSent: () async {
+                              await Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SmsVerifyPageWidget(),
+                                ),
+                                (r) => false,
+                              );
+                            },
+                          );
                         },
                         text: 'Sign in',
                         options: FFButtonOptions(
                           width: 130,
                           height: 40,
                           color: Color(0xB83474E0),
-                          textStyle: FlutterFlowTheme.subtitle2.override(
+                          textStyle: FlutterFlowTheme.title2.override(
                             fontFamily: 'Poppins',
-                            color: Colors.white,
                           ),
                           borderSide: BorderSide(
                             color: Colors.transparent,
