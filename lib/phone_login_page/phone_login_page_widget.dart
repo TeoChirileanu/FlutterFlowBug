@@ -1,6 +1,8 @@
+import '../auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
+import '../sms_verify_page/sms_verify_page_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -32,7 +34,7 @@ class _PhoneLoginPageWidgetState extends State<PhoneLoginPageWidget> {
             alignment: Alignment(0, 0),
             child: CachedNetworkImage(
               imageUrl:
-                  'https://github.com/TeoChirileanu/FlutterFlowBug/blob/flutterflow/assets/images/padure.jpg?raw=true',
+                  'https://github.com/TeoChirileanu/FlutterFlowBug/blob/main/assets/images/padure.jpg?raw=true',
               width: double.infinity,
               height: double.infinity,
               fit: BoxFit.cover,
@@ -54,7 +56,7 @@ class _PhoneLoginPageWidgetState extends State<PhoneLoginPageWidget> {
                       padding: EdgeInsets.fromLTRB(0, 0, 0, 50),
                       child: CachedNetworkImage(
                         imageUrl:
-                            'https://github.com/TeoChirileanu/FlutterFlowBug/blob/flutterflow/assets/images/logo%20(2).png?raw=true',
+                            'https://github.com/TeoChirileanu/FlutterFlowBug/blob/main/assets/images/logo%20(2).png?raw=true',
                         width: 300,
                         height: 200,
                         fit: BoxFit.cover,
@@ -62,7 +64,9 @@ class _PhoneLoginPageWidgetState extends State<PhoneLoginPageWidget> {
                     )
                   ],
                 ),
-                Divider(),
+                Divider(
+                  color: Colors.transparent,
+                ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -108,7 +112,9 @@ class _PhoneLoginPageWidgetState extends State<PhoneLoginPageWidget> {
                     )
                   ],
                 ),
-                Divider(),
+                Divider(
+                  color: Colors.transparent,
+                ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -116,8 +122,30 @@ class _PhoneLoginPageWidgetState extends State<PhoneLoginPageWidget> {
                     Padding(
                       padding: EdgeInsets.fromLTRB(0, 50, 0, 0),
                       child: FFButtonWidget(
-                        onPressed: () {
-                          print('Button pressed ...');
+                        onPressed: () async {
+                          if (textController.text.isEmpty ||
+                              !textController.text.startsWith('+')) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                    'Phone Number is required and has to start with +.'),
+                              ),
+                            );
+                            return;
+                          }
+                          await beginPhoneAuth(
+                            context: context,
+                            phoneNumber: textController.text,
+                            onCodeSent: () async {
+                              await Navigator.pushAndRemoveUntil(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SmsVerifyPageWidget(),
+                                ),
+                                (r) => false,
+                              );
+                            },
+                          );
                         },
                         text: 'Sign in',
                         options: FFButtonOptions(
