@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "125312623689",
+    "project_id": "githubintegrationbug",
+    "storage_bucket": "githubintegrationbug.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125312623689:android:8123d03e06a36a38950b98",
+        "android_client_info": {
+          "package_name": "com.flutterflow.githubintegrationbug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "125312623689-7ecnsq09k6kghuen1fthiad0ncsm2p7b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBxZFCtzou8Yl_QVHYU0HFn32rYT_03rZE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "125312623689-7ecnsq09k6kghuen1fthiad0ncsm2p7b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
