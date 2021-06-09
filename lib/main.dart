@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'auth/firebase_user_provider.dart';
-import 'package:github_integration_bug/puyll/puyll_widget.dart';
+import 'package:github_integration_bug/login_page/login_page_widget.dart';
 import 'package:github_integration_bug/home_page/home_page_widget.dart';
 
 void main() async {
@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
             )
           : currentUser.loggedIn
               ? HomePageWidget()
-              : PuyllWidget(),
+              : LoginPageWidget(),
     );
   }
 }

@@ -7,14 +7,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class PuyllWidget extends StatefulWidget {
-  PuyllWidget({Key key}) : super(key: key);
+class LoginPageWidget extends StatefulWidget {
+  LoginPageWidget({Key key}) : super(key: key);
 
   @override
-  _PuyllWidgetState createState() => _PuyllWidgetState();
+  _LoginPageWidgetState createState() => _LoginPageWidgetState();
 }
 
-class _PuyllWidgetState extends State<PuyllWidget> {
+class _LoginPageWidgetState extends State<LoginPageWidget> {
   TextEditingController emailTextController;
   TextEditingController passwordTextController;
   bool passwordVisibility;
@@ -58,7 +58,7 @@ class _PuyllWidgetState extends State<PuyllWidget> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 40, 20),
+                      padding: EdgeInsets.fromLTRB(60, 0, 60, 20),
                       child: Container(
                         width: double.infinity,
                         height: 50,
@@ -110,7 +110,7 @@ class _PuyllWidgetState extends State<PuyllWidget> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(40, 0, 40, 20),
+                      padding: EdgeInsets.fromLTRB(60, 0, 60, 20),
                       child: Container(
                         width: double.infinity,
                         height: 50,
@@ -173,6 +173,7 @@ class _PuyllWidgetState extends State<PuyllWidget> {
                         ),
                       ),
                     ),
+                    Divider(),
                     FFButtonWidget(
                       onPressed: () async {
                         final user = await signInWithEmail(
@@ -196,7 +197,7 @@ class _PuyllWidgetState extends State<PuyllWidget> {
                       options: FFButtonOptions(
                         width: 300,
                         height: 55,
-                        color: Color(0xFF3C5DB0),
+                        color: Color(0xC03C5DB0),
                         textStyle: GoogleFonts.getFont(
                           'Roboto',
                           color: Color(0xFFFAFAFA),
@@ -214,14 +215,24 @@ class _PuyllWidgetState extends State<PuyllWidget> {
               ),
             ),
           ),
-          Align(
-            alignment: Alignment(0.07, -0.89),
-            child: CachedNetworkImage(
-              imageUrl:
-                  'https://github.com/TeoChirileanu/FlutterFlowBug/blob/main/assets/images/logo%20(2).png?raw=true',
-              width: 300,
+          Padding(
+            padding: EdgeInsets.fromLTRB(0, 100, 0, 0),
+            child: Container(
+              width: double.infinity,
               height: 200,
-              fit: BoxFit.cover,
+              decoration: BoxDecoration(
+                color: Color(0x4DEEEEEE),
+              ),
+              child: Align(
+                alignment: Alignment(0.07, -0.89),
+                child: CachedNetworkImage(
+                  imageUrl:
+                      'https://github.com/TeoChirileanu/FlutterFlowBug/blob/main/assets/images/logo%20(2).png?raw=true',
+                  width: 300,
+                  height: 200,
+                  fit: BoxFit.cover,
+                ),
+              ),
             ),
           )
         ],
